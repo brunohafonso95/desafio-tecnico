@@ -9,9 +9,6 @@ export default class App {
 
   constructor(private port: number = 3333) {
     this.server = express();
-    this.setupGlobalMiddlewares();
-    this.setupRoutes();
-    this.setupNotFoundMiddleware();
   }
 
   private setupGlobalMiddlewares(): void {
@@ -29,6 +26,14 @@ export default class App {
   }
 
   public initApplication(): void {
+    this.setupGlobalMiddlewares();
+    this.setupRoutes();
+    this.setupNotFoundMiddleware();
+  }
+
+  public closeApplication(): void {}
+
+  public startServer(): void {
     this.server.listen(this.port, () => {
       Logger.info({ msg: `Server listening on port ${this.port}` });
     });
