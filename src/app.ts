@@ -3,6 +3,7 @@ import express, { Application } from 'express';
 import { notFoundController } from '@src/controllers';
 
 import Logger from './utils/Logger';
+import loggerConfig from './config/logger';
 
 export default class App {
   private server: Application;
@@ -31,7 +32,9 @@ export default class App {
     this.setupNotFoundMiddleware();
   }
 
-  public closeApplication(): void {}
+  public closeApplication(): void {
+    Logger.info({ msg: 'Closing the application' });
+  }
 
   public startServer(): void {
     this.server.listen(this.port, () => {
