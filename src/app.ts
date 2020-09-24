@@ -2,6 +2,8 @@ import express, { Application } from 'express';
 
 import { notFoundController } from '@src/controllers';
 
+import Logger from './utils/Logger';
+
 export default class App {
   private server: Application;
 
@@ -28,7 +30,7 @@ export default class App {
 
   public initApplication(): void {
     this.server.listen(this.port, () => {
-      console.info('server listening');
+      Logger.info({ msg: `Server listening on port ${this.port}` });
     });
   }
 }
