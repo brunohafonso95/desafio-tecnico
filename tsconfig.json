@@ -9,6 +9,8 @@
     "strict": true,
     "noImplicitReturns": false,
     "baseUrl": ".",
+    "noImplicitThis": true,
+    "noImplicitAny": true,
     "paths": {
       "@src/*": ["./src/*"],
       "@tests/*": ["./__tests__/*"]
