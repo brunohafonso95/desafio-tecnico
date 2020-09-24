@@ -1,1 +1,1 @@
-export { default as notFoundController } from './NotFoundController';
+export { default as NotFoundController } from './NotFoundController';

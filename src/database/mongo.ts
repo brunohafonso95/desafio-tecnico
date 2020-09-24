@@ -1,5 +1,4 @@
 import mongoose, { Mongoose } from 'mongoose';
-import {} from 'ramda';
 
 import { mongoConfig } from '@src/config/env';
 

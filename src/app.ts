@@ -1,9 +1,12 @@
 import express, { Application } from 'express';
+import 'express-async-errors';
 
-import { notFoundController } from '@src/controllers';
+import { signupRoutes } from '@src/routes';
+import { NotFoundController } from '@src/controllers';
 import * as mongo from '@src/database/mongo';
 
 import Logger from './utils/Logger';
+import errorMiddleware from './middlewares/errorMiddleware';
 
 export default class App {
   private server: Application;
@@ -19,10 +22,17 @@ export default class App {
 
   private setupRoutes(): void {
     Logger.info({ msg: 'Setuping the application routes' });
+    this.server.use('/api/v1', signupRoutes);
+  }
+
+  private setupGlobalErrorMiddleware(): void {
+    Logger.info({ msg: 'Setuping global error middleware' });
+    this.server.use(errorMiddleware);
   }
 
   private setupNotFoundMiddleware(): void {
     Logger.info({ msg: 'Setuping not found error middleware' });
+    const notFoundController = new NotFoundController();
     this.server.use(
       notFoundController.handleNotFoundRoutes.bind(notFoundController),
     );
@@ -33,6 +43,7 @@ export default class App {
     this.setupGlobalMiddlewares();
     this.setupRoutes();
     this.setupNotFoundMiddleware();
+    this.setupGlobalErrorMiddleware();
     await this.databaseSetup();
   }
 

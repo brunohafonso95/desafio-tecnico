@@ -1,4 +1,4 @@
 export default interface ILogData {
   msg: string;
-  [key: string]: string | number;
+  [key: string]: string | number | any;
 }

@@ -7,6 +7,20 @@ import Logger from '@src/utils/Logger';
 
 import App from './app';
 
+process.on('unhandledRejection', (reason, promise) => {
+  Logger.error({
+    msg: `App exiting due to an unhandled promise: ${promise} and reason: ${reason}`,
+  });
+
+  throw reason;
+});
+
+process.on('uncaughtException', error => {
+  Logger.error({ msg: `App exiting due to an unhandled exception: ${error}` });
+
+  process.exit(ExitedStatus.FAILURE);
+});
+
 (async () => {
   try {
     const { port } = applicationConfig.getEnv();
