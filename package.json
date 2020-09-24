@@ -1,0 +1,14 @@
+{
+  "name": "desafio-sky",
+  "version": "1.0.0",
+  "description": "projeto com o objetivo de avaliar meus conhecimentos técnicos para um processo seletivo.",
+  "main": "src/index.ts",
+  "repository": "https://github.com/brunohafonso95/desafio-tecnico.git",
+  "author": "Bruno Afonso <brunohafonso@gmail.com>",
+  "license": "MIT",
+  "private": false,
+  "devDependencies": {
+    "@types/node": "^14.11.2",
+    "typescript": "^4.0.3"
+  }
+}
