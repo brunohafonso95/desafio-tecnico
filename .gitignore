@@ -119,6 +119,10 @@ dist
 !.vscode/extensions.json
 *.code-workspace
 
+### lint and test report files ###
+html-report
+lint.html
+
 ### VisualStudioCode Patch ###
 # Ignore all local history of files
 .history
