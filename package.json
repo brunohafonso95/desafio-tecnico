@@ -8,27 +8,37 @@
   "license": "MIT",
   "private": false,
   "scripts": {
+    "build": "tsc",
+    "start": "yarn build && node dist/src/index.js",
     "start:dev": "ts-node-dev --inspect --transpile-only --no-notify --ignore-watch node_modules src/index.ts | pino-pretty -c -t"
   },
   "dependencies": {
+    "@hapi/joi": "^17.1.1",
+    "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "http-status-codes": "^2.1.4",
     "module-alias": "^2.2.2",
+    "mongoose": "^5.10.6",
     "pino": "^6.6.1",
-    "pino-pretty": "^4.2.1"
+    "pino-pretty": "^4.2.1",
+    "ramda": "^0.27.1"
   },
   "devDependencies": {
     "@commitlint/cli": "^8.3.3",
     "@commitlint/config-conventional": "^11.0.0",
     "@types/express": "^4.17.8",
+    "@types/hapi__joi": "^17.1.5",
     "@types/http-status-codes": "^1.2.0",
     "@types/jest": "^26.0.14",
     "@types/module-alias": "^2.0.0",
+    "@types/mongoose": "^5.7.36",
     "@types/node": "^14.11.2",
     "@types/pino": "^6.3.1",
+    "@types/ramda": "^0.27.19",
     "@typescript-eslint/eslint-plugin": "^4.2.0",
     "@typescript-eslint/parser": "^4.2.0",
     "conventional-changelog-conventionalcommits": "^4.4.0",
+    "dotenv-cli": "^4.0.0",
     "eslint": "^7.9.0",
     "eslint-config-airbnb-base": "^14.2.0",
     "eslint-config-prettier": "^6.11.0",

@@ -1,5 +1,7 @@
 import './utils/moduleAlias';
+import 'dotenv/config';
 
+import { applicationConfig } from '@src/config/env';
 import ExitedStatus from '@src/interfaces/enums/ExitedStatus';
 import Logger from '@src/utils/Logger';
 
@@ -7,8 +9,9 @@ import App from './app';
 
 (async () => {
   try {
-    const app = new App();
-    app.initApplication();
+    const { port } = applicationConfig.getEnv();
+    const app = new App(port);
+    await app.initApplication();
     app.startServer();
 
     const exitSignals: NodeJS.Signals[] = ['SIGINT', 'SIGTERM', 'SIGQUIT'];

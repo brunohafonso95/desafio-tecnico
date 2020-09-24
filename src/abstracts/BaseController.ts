@@ -9,7 +9,7 @@ export default abstract class BaseController {
     res.status(statusCode).json(payload);
   }
 
-  protected sendErrorResponse<T = any>(
+  protected sendErrorResponse(
     res: Response,
     statusCode: number,
     message: string,
