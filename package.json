@@ -11,6 +11,7 @@
     "@commitlint/cli": "^8.3.3",
     "@commitlint/config-conventional": "^11.0.0",
     "@types/jest": "^26.0.14",
+    "@types/module-alias": "^2.0.0",
     "@types/node": "^14.11.2",
     "@typescript-eslint/eslint-plugin": "^4.2.0",
     "@typescript-eslint/parser": "^4.2.0",
@@ -40,5 +41,8 @@
       "eslint --fix -f html -o lint.html",
       "git add"
     ]
+  },
+  "dependencies": {
+    "module-alias": "^2.2.2"
   }
 }

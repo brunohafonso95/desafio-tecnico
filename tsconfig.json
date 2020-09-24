@@ -9,7 +9,10 @@
     "strict": true,
     "noImplicitReturns": false,
     "baseUrl": ".",
-    // "paths": {},
+    "paths": {
+      "@src/*": ["./src/*"],
+      "@tests/*": ["./__tests__/*"]
+    },
     "esModuleInterop": true,
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
