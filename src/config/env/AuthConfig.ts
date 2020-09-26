@@ -1,8 +1,8 @@
-import IAuthConfig from '@src/interfaces/IAuthConfig';
 import Joi from '@hapi/joi';
 import { pickAll } from 'ramda';
 
 import BaseConfig from '@src/abstracts/BaseConfig';
+import IAuthConfig from '@src/interfaces/IAuthConfig';
 import IConfig from '@src/interfaces/IConfig';
 
 class AuthConfig extends BaseConfig implements IConfig<IAuthConfig> {
@@ -18,10 +18,7 @@ class AuthConfig extends BaseConfig implements IConfig<IAuthConfig> {
 
   public getEnv(): IAuthConfig {
     const mongoEnv: IAuthConfig = pickAll(
-      [
-        'AUTH_SECRET',
-        'AUTH_EXPIRES_IN',
-      ],
+      ['AUTH_SECRET', 'AUTH_EXPIRES_IN'],
       process.env,
     );
 

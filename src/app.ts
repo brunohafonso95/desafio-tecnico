@@ -3,7 +3,7 @@ import 'express-async-errors';
 
 import { NotFoundController } from '@src/controllers';
 import * as mongo from '@src/database/mongo';
-import { signupRoutes, signinRoutes } from '@src/routes';
+import { signupRoutes, signinRoutes, getUserRoutes } from '@src/routes';
 
 import errorMiddleware from './middlewares/errorMiddleware';
 import Logger from './utils/Logger';
@@ -24,6 +24,7 @@ export default class App {
     Logger.info({ msg: 'Setuping the application routes' });
     this.server.use('/api/v1', signupRoutes);
     this.server.use('/api/v1', signinRoutes);
+    this.server.use('/api/v1', getUserRoutes);
   }
 
   private setupGlobalErrorMiddleware(): void {

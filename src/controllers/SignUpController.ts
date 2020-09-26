@@ -2,12 +2,12 @@ import { Request, Response } from 'express';
 import httpStatus from 'http-status-codes';
 
 import BaseController from '@src/abstracts/BaseController';
-import IService from '@src/interfaces/IService';
+import ICreateUserService from '@src/interfaces/ICreateUserService';
 import CreateUserService from '@src/services/CreateUserService';
 
 export default class SignupController extends BaseController {
   constructor(
-    private readonly createUserService: IService = new CreateUserService(),
+    private readonly createUserService: ICreateUserService = new CreateUserService(),
   ) {
     super();
   }

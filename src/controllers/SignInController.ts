@@ -2,12 +2,12 @@ import { Request, Response } from 'express';
 import httpStatus from 'http-status-codes';
 
 import BaseController from '@src/abstracts/BaseController';
-import IService from '@src/interfaces/IService';
+import IAutheticateUserService from '@src/interfaces/IAuthenticateUserService';
 import AuthenticateUserService from '@src/services/AuthenticateUserService';
 
 export default class SigninController extends BaseController {
   constructor(
-    private readonly authenticateUserService: IService = new AuthenticateUserService(),
+    private readonly authenticateUserService: IAutheticateUserService = new AuthenticateUserService(),
   ) {
     super();
   }

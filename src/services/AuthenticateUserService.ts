@@ -1,8 +1,8 @@
 import httpStatus from 'http-status-codes';
 
+import IAutheticateUserService from '@src/interfaces/IAuthenticateUserService';
 import IAuthProvider from '@src/interfaces/IAuthProvider';
 import IEncryptProvider from '@src/interfaces/IEncryptProvider';
-import IService from '@src/interfaces/IService';
 import IUser from '@src/interfaces/IUser';
 import IUserRepository from '@src/interfaces/IUserRepository';
 import AuthProvider from '@src/providers/AuthProvider';
@@ -12,8 +12,7 @@ import ApiError from '@src/utils/errors/ApiError';
 import Logger from '@src/utils/Logger';
 
 export default class AuthenticateUserService
-  implements
-    IService<{ email: string; senha: string }, IUser & { id?: string }> {
+  implements IAutheticateUserService {
   constructor(
     private readonly userRepository: IUserRepository = new UserRepository(),
     private readonly authProvider: IAuthProvider = new AuthProvider(),
@@ -27,7 +26,7 @@ export default class AuthenticateUserService
     email: string;
     senha: string;
   }): Promise<IUser & { id?: string }> {
-    const user = await this.userRepository.getBySpecificField('email', email);
+    const user = await this.userRepository.getUserByEmail(email);
     if (!user) {
       Logger.error({ msg: `User not found with email: ${email}` });
       throw new ApiError(
@@ -53,7 +52,7 @@ export default class AuthenticateUserService
 
     const token = this.authProvider.generateUserToken(user);
     const dataAtual = new Date().toISOString();
-    await this.userRepository.updateBySpecificField('email', email, {
+    await this.userRepository.updateUserByEmail(email, {
       token,
       data_atualizacao: dataAtual,
       ultimo_login: dataAtual,

@@ -69,7 +69,7 @@
     ],
     "no-useless-constructor": "off",
     "class-methods-use-this": "off",
-    "camelcase": ["error", { "allow": ["data_criacao", "data_atualizacao", "ultimo_login"] }],
+    "camelcase": ["error", { "allow": ["data_criacao", "data_atualizacao", "ultimo_login", "user_id"] }],
     "prettier/prettier": "error",
     "import/extensions": [
       "error",

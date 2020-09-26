@@ -1,5 +1,5 @@
 import IAuthProvider from '@src/interfaces/IAuthProvider';
-import IService from '@src/interfaces/IService';
+import ICreateUserService from '@src/interfaces/ICreateUserService';
 import IUser from '@src/interfaces/IUser';
 import IUserRepository from '@src/interfaces/IUserRepository';
 import AuthProvider from '@src/providers/AuthProvider';
@@ -8,7 +8,7 @@ import UserRepository from '@src/repositories/UserRepository';
 interface ICreateUser extends IUser {
   id: string;
 }
-export default class CreateUserService implements IService {
+export default class CreateUserService implements ICreateUserService {
   constructor(
     private readonly userRepository: IUserRepository = new UserRepository(),
     private readonly authProvider: IAuthProvider = new AuthProvider(),

@@ -15,24 +15,30 @@ class UserRepository implements IUserRepository {
     return newUser.toJSON();
   }
 
-  public async getBySpecificField(
-    fieldName: keyof IUser,
-    fieldValue: string,
+  public async getUserByEmail(
+    email: string,
   ): Promise<(IUser & { id?: string }) | null> {
     const user = await this.UserRepositoryModel.findOne({
-      [fieldName]: fieldValue,
+      email,
     });
 
     return user ? user.toJSON() : user;
   }
 
-  public async updateBySpecificField(
-    fieldName: keyof IUser,
-    fieldValue: string,
+  public async getUserByIdAndToken(
+    userId: string,
+    token: string,
+  ): Promise<IUser & { id?: string }> {
+    const user = await this.UserRepositoryModel.findOne({ _id: userId, token });
+    return user ? user.toJSON() : user;
+  }
+
+  public async updateUserByEmail(
+    email: string,
     payload: Partial<IUser>,
   ): Promise<IUser & { id?: string }> {
     const user = await this.UserRepositoryModel.updateOne(
-      { [fieldName]: fieldValue },
+      { email },
       { $set: { ...payload } },
     );
 
