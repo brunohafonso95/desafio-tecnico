@@ -3,7 +3,7 @@ import * as schemas from '@src/schemas';
 import JoiAdapter from '@src/utils/JoiAdapter';
 
 const getEnvVariables = <T = any>(schemaName: SchemasEnum): T => {
-  return JoiAdapter.validateSchema(
+  return new JoiAdapter().validateSchema(
     schemas[schemaName],
     process.env,
     'please check the env variables',

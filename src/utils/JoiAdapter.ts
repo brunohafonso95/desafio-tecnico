@@ -2,7 +2,7 @@ import { Schema, ValidationError } from '@hapi/joi';
 
 import ISchemaValidator from '@src/interfaces/ISchemaValidator';
 
-class JoiAdapter implements ISchemaValidator {
+export default class JoiAdapter implements ISchemaValidator {
   public validateSchema<T = any>(
     schema: Schema,
     value: any,
@@ -33,5 +33,3 @@ class JoiAdapter implements ISchemaValidator {
     return `${message}: ${schemaErrorDetails}`;
   }
 }
-
-export default new JoiAdapter();
