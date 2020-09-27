@@ -1,4 +1,4 @@
 export default interface IApplicationConfig {
-  port: number;
-  env: string;
+  PORT: number;
+  NODE_ENV: string;
 }

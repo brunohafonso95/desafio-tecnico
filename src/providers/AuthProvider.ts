@@ -1,13 +1,16 @@
 import jwt from 'jsonwebtoken';
 
-import { authConfig } from '@src/config/env';
-import { IAuthProvider, IUser } from '@src/interfaces';
+import { getEnvVariables } from '@src/config/env';
+import { IAuthConfig, IAuthProvider, IUser } from '@src/interfaces';
+import Schemas from '@src/interfaces/enums/Schemas';
 
 export interface IDecodedUser extends Omit<IUser, '_id'> {
   id: string;
 }
 
-const { AUTH_SECRET, AUTH_EXPIRES_IN } = authConfig.getEnv();
+const { AUTH_SECRET, AUTH_EXPIRES_IN } = getEnvVariables<IAuthConfig>(
+  Schemas.AuthConfigSchema,
+);
 
 export default class AuthProvider implements IAuthProvider<IDecodedUser> {
   public generateToken(payload: {

@@ -1,6 +1,8 @@
 import mongoose, { Mongoose } from 'mongoose';
 
-import { mongoConfig } from '@src/config/env';
+import { getEnvVariables } from '@src/config/env';
+import { IMongoConfig } from '@src/interfaces';
+import Schemas from '@src/interfaces/enums/Schemas';
 
 export function getMongoConnectionString(): string {
   const {
@@ -10,7 +12,7 @@ export function getMongoConnectionString(): string {
     MONGODB_DATABASE,
     MONGODB_PASSWORD,
     MONGODB_SSL,
-  } = mongoConfig.getEnv();
+  } = getEnvVariables<IMongoConfig>(Schemas.MongoConfigSchema);
 
   return `mongodb://${
     MONGODB_USER && MONGODB_PASSWORD

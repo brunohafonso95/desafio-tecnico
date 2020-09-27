@@ -8,6 +8,7 @@ import { signupRoutes, signinRoutes, getUserRoutes } from '@src/routes';
 import expressRouteAdapter from './adapters/expressRouteAdapter';
 import errorMiddleware from './middlewares/errorMiddleware';
 import Logger from './utils/Logger';
+import validateEnvVariables from './config/env/validateEnvVariables';
 
 export default class App {
   private server: Application;
@@ -39,8 +40,14 @@ export default class App {
     this.server.use(expressRouteAdapter(notFoundController));
   }
 
+  private validateEnvVariables(): void {
+    Logger.info({ msg: 'Validating env variables' });
+    validateEnvVariables();
+  }
+
   public async initApplication(): Promise<void> {
     Logger.info({ msg: 'Initalizing the application' });
+    this.validateEnvVariables();
     this.setupGlobalMiddlewares();
     this.setupRoutes();
     this.setupNotFoundMiddleware();

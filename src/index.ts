@@ -1,11 +1,13 @@
 import './utils/moduleAlias';
 import 'dotenv/config';
 
-import { applicationConfig } from '@src/config/env';
+import { getEnvVariables } from '@src/config/env';
 import ExitedStatus from '@src/interfaces/enums/ExitedStatus';
 import Logger from '@src/utils/Logger';
 
 import App from './app';
+import Schemas from './interfaces/enums/Schemas';
+import { IApplicationConfig } from './interfaces';
 
 process.on('unhandledRejection', (reason, promise) => {
   Logger.error({
@@ -23,8 +25,10 @@ process.on('uncaughtException', error => {
 
 (async () => {
   try {
-    const { port } = applicationConfig.getEnv();
-    const app = new App(port);
+    const { PORT } = getEnvVariables<IApplicationConfig>(
+      Schemas.ApplicationConfigSchema,
+    );
+    const app = new App(PORT);
     await app.initApplication();
     app.startServer();
 
