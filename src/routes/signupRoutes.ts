@@ -1,14 +1,10 @@
 import { Router } from 'express';
 
-import SignupController from '@src/controllers/SignUpController';
-
-const signupController = new SignupController();
+import expressRouteAdapter from '@src/adapters/expressRouteAdapter';
+import { signupFactoryController } from '@src/factories';
 
 const routes = Router();
 
-routes.post(
-  '/signup',
-  signupController.handleSignupRoute.bind(signupController),
-);
+routes.post('/signup', expressRouteAdapter(signupFactoryController()));
 
 export default routes;

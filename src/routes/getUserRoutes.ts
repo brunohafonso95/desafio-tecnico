@@ -1,16 +1,15 @@
 import { Router } from 'express';
 
-import GetUserController from '@src/controllers/GetUserController';
+import expressRouteAdapter from '@src/adapters/expressRouteAdapter';
+import { getUserFactoryController } from '@src/factories';
 import authMiddleware from '@src/middlewares/authMiddleware';
-
-const getUserController = new GetUserController();
 
 const routes = Router();
 
 routes.get(
   '/users/:user_id',
   authMiddleware,
-  getUserController.handleGetUserByIdRoute.bind(getUserController),
+  expressRouteAdapter(getUserFactoryController()),
 );
 
 export default routes;
