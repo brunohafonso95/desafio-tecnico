@@ -2,8 +2,7 @@ import Joi from '@hapi/joi';
 import { pickAll } from 'ramda';
 
 import BaseConfig from '@src/abstracts/BaseConfig';
-import IConfig from '@src/interfaces/IConfig';
-import IMongoConfig from '@src/interfaces/IMongoConfig';
+import { IConfig, IMongoConfig } from '@src/interfaces';
 
 class MongoConfig extends BaseConfig implements IConfig<IMongoConfig> {
   private readonly schema: Joi.Schema;

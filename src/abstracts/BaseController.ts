@@ -1,19 +1,25 @@
-import { Response } from 'express';
+import httpStatus from 'http-status-codes';
+
+import { IHttpResponse } from '@src/interfaces';
 
 export default abstract class BaseController {
-  protected sendSuccessResponse<T = any>(
-    res: Response,
-    statusCode: number,
-    payload: T,
-  ): void {
-    res.status(statusCode).json(payload);
+  protected formatGenericSuccessResponse(
+    payload: any,
+    statusCode: number = httpStatus.OK,
+  ): IHttpResponse {
+    return {
+      statusCode,
+      body: payload,
+    };
   }
 
-  protected sendErrorResponse(
-    res: Response,
-    statusCode: number,
+  protected formatGenericErrorResponse(
     message: string,
-  ): void {
-    res.status(statusCode).json({ mensagem: message });
+    statusCode: number = httpStatus.BAD_REQUEST,
+  ): IHttpResponse {
+    return {
+      statusCode,
+      body: { mensagem: message },
+    };
   }
 }

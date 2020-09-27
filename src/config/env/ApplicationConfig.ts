@@ -2,8 +2,7 @@ import Joi from '@hapi/joi';
 import { pickAll } from 'ramda';
 
 import BaseConfig from '@src/abstracts/BaseConfig';
-import IApplicationConfig from '@src/interfaces/IAplicationConfig';
-import IConfig from '@src/interfaces/IConfig';
+import { IConfig, IApplicationConfig } from '@src/interfaces';
 
 class ApplicationConfig
   extends BaseConfig

@@ -1,8 +1,7 @@
 import jwt from 'jsonwebtoken';
 
 import { authConfig } from '@src/config/env';
-import IAuthProvider from '@src/interfaces/IAuthProvider';
-import IUser from '@src/interfaces/IUser';
+import { IAuthProvider, IUser } from '@src/interfaces';
 
 export interface IDecodedUser extends Omit<IUser, '_id'> {
   id: string;

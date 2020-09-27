@@ -1,7 +1,6 @@
 import { Model } from 'mongoose';
 
-import IUser from '@src/interfaces/IUser';
-import IUserRepository from '@src/interfaces/IUserRepository';
+import { IUserRepository, IUser } from '@src/interfaces';
 import UserModel, { IUserModel } from '@src/models/UserModel';
 
 class UserRepository implements IUserRepository {

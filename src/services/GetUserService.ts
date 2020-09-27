@@ -1,17 +1,12 @@
 import httpStatus from 'http-status-codes';
 
-import IGetUserService from '@src/interfaces/IGetUserService';
-import IUser from '@src/interfaces/IUser';
-import IUserRepository from '@src/interfaces/IUserRepository';
-import UserRepository from '@src/repositories/UserRepository';
+import { IGetUserService, IUserRepository, IUser } from '@src/interfaces';
 import checkIfTheDateHasBeenPassedInMinutes from '@src/utils/checkIfTheDateHasBeenPassedInMinutes';
 import ApiError from '@src/utils/errors/ApiError';
 import Logger from '@src/utils/Logger';
 
 export default class GetUserService implements IGetUserService {
-  constructor(
-    private readonly userRepository: IUserRepository = new UserRepository(),
-  ) {}
+  constructor(private readonly userRepository: IUserRepository) {}
 
   public async execute(
     userId: string,

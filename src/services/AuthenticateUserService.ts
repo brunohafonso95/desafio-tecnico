@@ -1,22 +1,21 @@
 import httpStatus from 'http-status-codes';
 
-import IAutheticateUserService from '@src/interfaces/IAuthenticateUserService';
-import IAuthProvider from '@src/interfaces/IAuthProvider';
-import IEncryptProvider from '@src/interfaces/IEncryptProvider';
-import IUser from '@src/interfaces/IUser';
-import IUserRepository from '@src/interfaces/IUserRepository';
-import AuthProvider from '@src/providers/AuthProvider';
-import EncryptProvider from '@src/providers/EncryptProvider';
-import UserRepository from '@src/repositories/UserRepository';
+import {
+  IAutheticateUserService,
+  IAuthProvider,
+  IEncryptProvider,
+  IUser,
+  IUserRepository,
+} from '@src/interfaces';
 import ApiError from '@src/utils/errors/ApiError';
 import Logger from '@src/utils/Logger';
 
 export default class AuthenticateUserService
   implements IAutheticateUserService {
   constructor(
-    private readonly userRepository: IUserRepository = new UserRepository(),
-    private readonly authProvider: IAuthProvider = new AuthProvider(),
-    private readonly encryptProvider: IEncryptProvider = new EncryptProvider(),
+    private readonly userRepository: IUserRepository,
+    private readonly authProvider: IAuthProvider,
+    private readonly encryptProvider: IEncryptProvider,
   ) {}
 
   public async execute({

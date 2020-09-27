@@ -5,6 +5,7 @@ import { NotFoundController } from '@src/controllers';
 import * as mongo from '@src/database/mongo';
 import { signupRoutes, signinRoutes, getUserRoutes } from '@src/routes';
 
+import expressRouteAdapter from './adapters/expressRouteAdapter';
 import errorMiddleware from './middlewares/errorMiddleware';
 import Logger from './utils/Logger';
 
@@ -35,9 +36,7 @@ export default class App {
   private setupNotFoundMiddleware(): void {
     Logger.info({ msg: 'Setuping not found error middleware' });
     const notFoundController = new NotFoundController();
-    this.server.use(
-      notFoundController.handleNotFoundRoutes.bind(notFoundController),
-    );
+    this.server.use(expressRouteAdapter(notFoundController));
   }
 
   public async initApplication(): Promise<void> {

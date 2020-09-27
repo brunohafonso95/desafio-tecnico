@@ -1,6 +1,6 @@
 import bcrypt from 'bcrypt';
 
-import IEncryptProvider from '@src/interfaces/IEncryptProvider';
+import { IEncryptProvider } from '@src/interfaces';
 
 export default class EncryptProvider implements IEncryptProvider {
   public async generateHash(password: string, salt = 10): Promise<string> {

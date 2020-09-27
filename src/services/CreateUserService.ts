@@ -1,7 +1,9 @@
-import IAuthProvider from '@src/interfaces/IAuthProvider';
-import ICreateUserService from '@src/interfaces/ICreateUserService';
-import IUser from '@src/interfaces/IUser';
-import IUserRepository from '@src/interfaces/IUserRepository';
+import {
+  IAuthProvider,
+  ICreateUserService,
+  IUser,
+  IUserRepository,
+} from '@src/interfaces';
 import AuthProvider from '@src/providers/AuthProvider';
 import UserRepository from '@src/repositories/UserRepository';
 

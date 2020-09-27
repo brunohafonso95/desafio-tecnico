@@ -1,7 +1,7 @@
 import pino, { BaseLogger } from 'pino';
 
 import { loggerOptions } from '@src/config';
-import ILogData from '@src/interfaces/IlogData';
+import { ILogData } from '@src/interfaces';
 
 type ILogger = BaseLogger;
 

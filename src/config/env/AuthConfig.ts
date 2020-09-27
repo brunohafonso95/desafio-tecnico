@@ -2,8 +2,7 @@ import Joi from '@hapi/joi';
 import { pickAll } from 'ramda';
 
 import BaseConfig from '@src/abstracts/BaseConfig';
-import IAuthConfig from '@src/interfaces/IAuthConfig';
-import IConfig from '@src/interfaces/IConfig';
+import { IAuthConfig, IConfig } from '@src/interfaces';
 
 class AuthConfig extends BaseConfig implements IConfig<IAuthConfig> {
   private readonly schema: Joi.Schema;
