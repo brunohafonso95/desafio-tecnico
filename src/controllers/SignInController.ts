@@ -1,21 +1,29 @@
-import { Request, Response } from 'express';
 import httpStatus from 'http-status-codes';
 
 import BaseController from '@src/abstracts/BaseController';
-import IAutheticateUserService from '@src/interfaces/IAuthenticateUserService';
-import AuthenticateUserService from '@src/services/AuthenticateUserService';
+import {
+  IHttpResponse,
+  IController,
+  IAutheticateUserService,
+} from '@src/interfaces';
 
-export default class SigninController extends BaseController {
+export default class SigninController
+  extends BaseController
+  implements IController {
   constructor(
-    private readonly authenticateUserService: IAutheticateUserService = new AuthenticateUserService(),
+    private readonly authenticateUserService: IAutheticateUserService,
   ) {
     super();
   }
 
-  public async handleSigninRoute(req: Request, res: Response): Promise<void> {
+  public async handleRoute(httpRequest: IHttpResponse): Promise<IHttpResponse> {
     const autheticatedUser = await this.authenticateUserService.execute(
-      req.body,
+      httpRequest.body,
     );
-    this.sendSuccessResponse(res, httpStatus.CREATED, autheticatedUser);
+
+    return this.formatGenericSuccessResponse(
+      autheticatedUser,
+      httpStatus.CREATED,
+    );
   }
 }

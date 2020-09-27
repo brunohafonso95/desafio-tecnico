@@ -1,10 +1,14 @@
-import { Request, Response } from 'express';
 import httpStatus from 'http-status-codes';
 
 import BaseController from '@src/abstracts/BaseController';
+import { IHttpRequest, IHttpResponse, IController } from '@src/interfaces';
 
-export default class NotFoundController extends BaseController {
-  public handleNotFoundRoutes(_req: Request, res: Response): void {
-    this.sendErrorResponse(res, httpStatus.NOT_FOUND, 'Not Found');
+export default class NotFoundController
+  extends BaseController
+  implements IController {
+  public handleRoute(_httpRequest: IHttpRequest): Promise<IHttpResponse> {
+    return Promise.resolve(
+      this.formatGenericErrorResponse('Not Found', httpStatus.NOT_FOUND),
+    );
   }
 }

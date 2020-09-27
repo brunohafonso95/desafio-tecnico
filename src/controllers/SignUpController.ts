@@ -1,19 +1,22 @@
-import { Request, Response } from 'express';
 import httpStatus from 'http-status-codes';
 
 import BaseController from '@src/abstracts/BaseController';
-import ICreateUserService from '@src/interfaces/ICreateUserService';
-import CreateUserService from '@src/services/CreateUserService';
+import {
+  IHttpRequest,
+  IHttpResponse,
+  IController,
+  ICreateUserService,
+} from '@src/interfaces';
 
-export default class SignupController extends BaseController {
-  constructor(
-    private readonly createUserService: ICreateUserService = new CreateUserService(),
-  ) {
+export default class SignupController
+  extends BaseController
+  implements IController {
+  constructor(private readonly createUserService: ICreateUserService) {
     super();
   }
 
-  public async handleSignupRoute(req: Request, res: Response): Promise<void> {
-    const newUser = await this.createUserService.execute(req.body);
-    this.sendSuccessResponse(res, httpStatus.CREATED, newUser);
+  public async handleRoute(httpRequest: IHttpRequest): Promise<IHttpResponse> {
+    const newUser = await this.createUserService.execute(httpRequest.body);
+    return this.formatGenericSuccessResponse(newUser, httpStatus.CREATED);
   }
 }
