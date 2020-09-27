@@ -3,6 +3,7 @@ enum Schemas {
   AuthConfigSchema = 'AuthConfigSchema',
   MongoConfigSchema = 'MongoConfigSchema',
   UserSchema = 'UserSchema',
+  AuthenticateUserSchema = 'AuthenticateUserSchema',
 }
 
 export default Schemas;

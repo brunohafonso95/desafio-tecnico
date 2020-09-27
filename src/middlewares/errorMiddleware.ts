@@ -4,6 +4,7 @@ import mongoose from 'mongoose';
 
 import CustomMongoValidation from '@src/interfaces/enums/CustomMongoValidation';
 import ApiError from '@src/utils/errors/ApiError';
+import ValidateSchemaError from '@src/utils/errors/ValidateSchemaError';
 import Logger from '@src/utils/Logger';
 
 export interface HTTPError extends Error {
@@ -32,7 +33,11 @@ function handleClientErrors(
 
 // eslint-disable-next-line max-params
 export default function (
-  error: mongoose.Error.ValidationError | HTTPError | ApiError,
+  error:
+    | mongoose.Error.ValidationError
+    | HTTPError
+    | ApiError
+    | ValidateSchemaError,
   _req: Request,
   res: Response,
   next: NextFunction,
@@ -46,7 +51,9 @@ export default function (
     }
 
     Logger.error({
-      msg: 'Internal Error',
+      msg: httpStatus.getStatusText(
+        error.status || httpStatus.INTERNAL_SERVER_ERROR,
+      ),
       errorMessage: error.message,
     });
     const errorCode = error.status || httpStatus.INTERNAL_SERVER_ERROR;

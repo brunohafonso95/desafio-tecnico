@@ -4,20 +4,25 @@ import {
   IUser,
   IUserRepository,
 } from '@src/interfaces';
-import AuthProvider from '@src/providers/AuthProvider';
-import UserRepository from '@src/repositories/UserRepository';
+import Schemas from '@src/interfaces/enums/Schemas';
+import ISchemaValidator from '@src/interfaces/ISchemaValidator';
 
 interface ICreateUser extends IUser {
   id: string;
 }
 export default class CreateUserService implements ICreateUserService {
   constructor(
-    private readonly userRepository: IUserRepository = new UserRepository(),
-    private readonly authProvider: IAuthProvider = new AuthProvider(),
+    private readonly userRepository: IUserRepository,
+    private readonly authProvider: IAuthProvider,
+    private readonly joiAdapter: ISchemaValidator,
   ) {}
 
   public async execute(userData: IUser): Promise<ICreateUser> {
-    const token = this.authProvider.generateUserToken(userData);
+    const validatedUserData = this.joiAdapter.validateSchema<IUser>(
+      Schemas.UserSchema,
+      userData,
+    );
+    const token = this.authProvider.generateUserToken(validatedUserData);
     const newUser = (await this.userRepository.create({
       ...userData,
       token,

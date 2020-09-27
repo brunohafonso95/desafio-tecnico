@@ -1,6 +1,7 @@
 import { Schema, ValidationError } from '@hapi/joi';
 
 import ISchemaValidator from '@src/interfaces/ISchemaValidator';
+import ValidateSchemaError from './errors/ValidateSchemaError';
 
 export default class JoiAdapter implements ISchemaValidator {
   public validateSchema<T = any>(
@@ -14,7 +15,7 @@ export default class JoiAdapter implements ISchemaValidator {
     });
 
     if (result.error) {
-      throw new Error(
+      throw new ValidateSchemaError(
         this.getSchemaErrorValidation(result.error, errorMessage),
       );
     }
