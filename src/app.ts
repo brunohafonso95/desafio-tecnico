@@ -6,9 +6,9 @@ import * as mongo from '@src/database/mongo';
 import { signupRoutes, signinRoutes, getUserRoutes } from '@src/routes';
 
 import expressRouteAdapter from './adapters/expressRouteAdapter';
-import errorMiddleware from './middlewares/errorMiddleware';
-import Logger from './utils/Logger';
 import validateEnvVariables from './config/env/validateEnvVariables';
+import { errorMiddleware, bodyParserMiddleware } from './middlewares';
+import Logger from './utils/Logger';
 
 export default class App {
   private server: Application;
@@ -19,7 +19,7 @@ export default class App {
 
   private setupGlobalMiddlewares(): void {
     Logger.info({ msg: 'Setuping global middlewares' });
-    this.server.use(express.json());
+    this.server.use(bodyParserMiddleware());
   }
 
   private setupRoutes(): void {
