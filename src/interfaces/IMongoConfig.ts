@@ -6,7 +6,7 @@ export default interface IMongoConfig {
   /** flag que ativa/desativa o SSL do MongoDB */
   MONGODB_SSL: boolean;
   /** porta em que irá rodar o MongoDb */
-  MONGODB_PORT: number;
+  MONGODB_PORT?: number;
   /** senha do MongoDB */
   MONGODB_PASSWORD?: string;
   /** nome do banco de dados */

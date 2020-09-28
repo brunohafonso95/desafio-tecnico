@@ -14,11 +14,13 @@ export function getMongoConnectionString(): string {
     MONGODB_SSL,
   } = getEnvVariables<IMongoConfig>(Schemas.MongoConfigSchema);
 
-  return `mongodb://${
+  return `mongodb+srv://${
     MONGODB_USER && MONGODB_PASSWORD
       ? `${MONGODB_USER}:${encodeURIComponent(MONGODB_PASSWORD)}@`
       : ''
-  }${MONGODB_HOST}:${MONGODB_PORT}/${MONGODB_DATABASE}?ssl=${MONGODB_SSL}`;
+  }${MONGODB_HOST}${
+    MONGODB_PORT ? `:${MONGODB_PORT}` : ''
+  }/${MONGODB_DATABASE}?ssl=${MONGODB_SSL}`;
 }
 
 export const connect = async (): Promise<Mongoose> =>
