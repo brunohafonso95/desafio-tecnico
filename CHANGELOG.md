@@ -1,3 +1,15 @@
+### [1.0.1](https://github.com/brunohafonso95/desafio-tecnico/compare/v1.0.0...v1.0.1) (2020-09-28)
+
+
+### :repeat: CI
+
+* fix the step of heroku login ([106735d](https://github.com/brunohafonso95/desafio-tecnico/commit/106735d6a6d27dc7300cfc982e2a622f7c3a86bc))
+
+
+### :zap: Refactor
+
+* group the imports of providers ([11f5702](https://github.com/brunohafonso95/desafio-tecnico/commit/11f5702e6eb809b97865ca8ec60c1e1dd2997d1f))
+
 ## 1.0.0 (2020-09-28)
 
 
