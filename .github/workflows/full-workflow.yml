@@ -62,19 +62,8 @@ jobs:
         node-version: [12.x]
     steps:
       - uses: actions/checkout@v2
-      - run: git fetch --prune --unshallow
-
-      - name: Login to Heroku
-        env:
-          HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
-        run: heroku login
-
-      - name: Setting heroku remote repo
-        env:
-          HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
-        run: heroku git:remote -a sky-challenge-api
-
-      - name: Deploy to heroku
-        run: git push heroku master
-        env:
-          CI: true
+      - uses: akhileshns/heroku-deploy@v3.5.6
+        with:
+          heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
+          heroku_app_name: ${{ secrets.HEROKU_APP_NAME }}
+          heroku_email: ${{ secrets.HEROKU_EMAIL }}
