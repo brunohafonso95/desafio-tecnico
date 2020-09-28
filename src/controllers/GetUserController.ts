@@ -18,7 +18,7 @@ export default class GetUserController
 
   public async handleRoute(httpRequest: IHttpRequest): Promise<IHttpResponse> {
     const { user_id } = httpRequest.params;
-    const token = httpRequest.headers['x-access-token'];
+    const token = httpRequest.headers.authorization;
     if (!user_id || !token) {
       Logger.error({ msg: 'id do usuário ou token não fornecidos' });
       return this.formatGenericErrorResponse(

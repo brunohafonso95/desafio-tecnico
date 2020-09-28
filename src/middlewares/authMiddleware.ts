@@ -9,7 +9,7 @@ export default function (
   res: Response,
   next: NextFunction,
 ): void {
-  const token = req.headers['x-access-token'] as string;
+  const token = req.headers.authorization as string;
 
   if (!token) {
     res.status(httpStatus.UNAUTHORIZED).json({ mensagem: 'Não Autorizado' });
