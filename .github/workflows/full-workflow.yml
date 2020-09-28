@@ -13,9 +13,8 @@ jobs:
         node-version: [12.x]
         mongodb-version: [4.2]
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
-        run: git fetch --prune --unshallow
+      - uses: actions/checkout@v2
+      - run: git fetch --prune --unshallow
 
       - name: Use nodeJS ${{ matrix.node-version }}
         uses: actions/setup-node@v1
@@ -32,9 +31,8 @@ jobs:
       matrix:
         node-version: [12.x]
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
-        run: git fetch --prune --unshallow
+      - uses: actions/checkout@v2
+      - run: git fetch --prune --unshallow
 
       - name: Use nodeJS ${{ matrix.node-version }}
         uses: actions/setup-node@v1
@@ -63,9 +61,8 @@ jobs:
       matrix:
         node-version: [12.x]
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
-        run: git fetch --prune --unshallow
+      - uses: actions/checkout@v2
+      - run: git fetch --prune --unshallow
 
       - name: Deploy to Heroku
         uses: akhileshns/heroku-deploy@v3.5.6
