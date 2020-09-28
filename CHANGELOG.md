@@ -1,3 +1,15 @@
+## [1.1.0](https://github.com/brunohafonso95/desafio-tecnico/compare/v1.0.2...v1.1.0) (2020-09-28)
+
+
+### :zap: Refactor
+
+* adjusts on database connection config ([046bcb0](https://github.com/brunohafonso95/desafio-tecnico/commit/046bcb0df22ed34dd8d1d71dc6090b3000d7ea23))
+
+
+### :sparkles: New Features
+
+* add the logs of steps on appliction startup ([543287c](https://github.com/brunohafonso95/desafio-tecnico/commit/543287cdbeee0c28160835b6ba37b56e4038841b))
+
 ### [1.0.3](https://github.com/brunohafonso95/desafio-tecnico/compare/v1.0.2...v1.0.3) (2020-09-28)
 
 
