@@ -1,11 +1,11 @@
 import './utils/moduleAlias';
 import 'dotenv/config';
 
+import App from '@src/App';
 import { getEnvVariables } from '@src/config/env';
 import ExitedStatus from '@src/interfaces/enums/ExitedStatus';
 import Logger from '@src/utils/Logger';
 
-import App from './App';
 import { IApplicationConfig } from './interfaces';
 import Schemas from './interfaces/enums/Schemas';
 
