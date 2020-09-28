@@ -1,5 +1,7 @@
 import express, { Application } from 'express';
 import 'express-async-errors';
+import openapi from 'openapi-comment-parser';
+import swaggerUI from 'swagger-ui-express';
 
 import { NotFoundController } from '@src/controllers';
 import * as mongo from '@src/database/mongo';
@@ -8,7 +10,10 @@ import { signupRoutes, signinRoutes, getUserRoutes } from '@src/routes';
 import expressRouteAdapter from './adapters/expressRouteAdapter';
 import validateEnvVariables from './config/env/validateEnvVariables';
 import { errorMiddleware, bodyParserMiddleware } from './middlewares';
+import openapiConfig from './openapirc';
 import Logger from './utils/Logger';
+
+const apiSchema = openapi(openapiConfig);
 
 export default class App {
   private server: Application;
@@ -20,6 +25,11 @@ export default class App {
   private setupGlobalMiddlewares(): void {
     Logger.info({ msg: 'Setuping global middlewares' });
     this.server.use(bodyParserMiddleware());
+  }
+
+  private docsSetup(): void {
+    Logger.info({ msg: 'Setuping the application docs' });
+    this.server.use('/docs', swaggerUI.serve, swaggerUI.setup(apiSchema));
   }
 
   private setupRoutes(): void {
@@ -48,6 +58,7 @@ export default class App {
   public async initApplication(): Promise<void> {
     Logger.info({ msg: 'Initalizing the application' });
     this.validateEnvVariables();
+    this.docsSetup();
     this.setupGlobalMiddlewares();
     this.setupRoutes();
     this.setupNotFoundMiddleware();

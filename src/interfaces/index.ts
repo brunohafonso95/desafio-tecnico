@@ -1,6 +1,5 @@
 export { default as IApplicationConfig } from './IAplicationConfig';
 export { default as IAuthConfig } from './IAuthConfig';
-export { default as IConfig } from './IConfig';
 export { default as IAutheticateUserService } from './IAuthenticateUserService';
 export { default as IAuthProvider } from './IAuthProvider';
 export { default as IGetUserService } from './IGetUserService';

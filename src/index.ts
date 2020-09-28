@@ -5,9 +5,9 @@ import { getEnvVariables } from '@src/config/env';
 import ExitedStatus from '@src/interfaces/enums/ExitedStatus';
 import Logger from '@src/utils/Logger';
 
-import App from './app';
-import Schemas from './interfaces/enums/Schemas';
+import App from './App';
 import { IApplicationConfig } from './interfaces';
+import Schemas from './interfaces/enums/Schemas';
 
 process.on('unhandledRejection', (reason, promise) => {
   Logger.error({
