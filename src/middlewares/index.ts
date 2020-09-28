@@ -5,3 +5,4 @@ export { default as contentTypeMiddleware } from './contentTypeMiddleware';
 export { default as corsMiddleware } from './corsMiddleware';
 export { default as rateLimiterMiddleware } from './rateLimiterMiddleware';
 export { default as securityMiddleware } from './securityMiddleware';
+export { default as loggerMiddleware } from './loggerMiddleware';

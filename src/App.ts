@@ -15,6 +15,7 @@ import {
   contentTypeMiddleware,
   corsMiddleware,
   securityMiddleware,
+  loggerMiddleware,
 } from './middlewares';
 import openapiConfig from './openapirc';
 import Logger from './utils/Logger';
@@ -31,9 +32,10 @@ export default class App {
   private setupGlobalMiddlewares(): void {
     Logger.info({ msg: 'Setuping global middlewares' });
     this.server.use(bodyParserMiddleware());
+    this.server.use(loggerMiddleware());
+    this.server.use(securityMiddleware());
     this.server.use(contentTypeMiddleware);
     this.server.use(corsMiddleware);
-    this.server.use(securityMiddleware);
     Logger.info({ msg: 'Global middlewares setup was successfully finished' });
   }
 
