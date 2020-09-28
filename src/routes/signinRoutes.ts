@@ -26,7 +26,7 @@ const routes = Router();
  */
 routes.post(
   '/signin',
-  rateLimiterMiddleware,
+  rateLimiterMiddleware({}),
   expressRouteAdapter(signinFactoryController()),
 );
 
