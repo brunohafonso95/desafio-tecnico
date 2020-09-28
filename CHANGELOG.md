@@ -1,3 +1,10 @@
+### [1.3.1](https://github.com/brunohafonso95/desafio-tecnico/compare/v1.3.0...v1.3.1) (2020-09-28)
+
+
+### :bug: Fixes
+
+* adjust in use of rate limit middleware ([9c85ca4](https://github.com/brunohafonso95/desafio-tecnico/commit/9c85ca45ef4f4696a8755e3c51151eb54b2808de))
+
 ## [1.3.0](https://github.com/brunohafonso95/desafio-tecnico/compare/v1.2.0...v1.3.0) (2020-09-28)
 
 
