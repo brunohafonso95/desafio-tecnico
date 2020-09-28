@@ -5,6 +5,13 @@
 
 * adjusts on database connection config ([046bcb0](https://github.com/brunohafonso95/desafio-tecnico/commit/046bcb0df22ed34dd8d1d71dc6090b3000d7ea23))
 
+### [1.0.3](https://github.com/brunohafonso95/desafio-tecnico/compare/v1.0.2...v1.0.3) (2020-09-28)
+
+
+### :zap: Refactor
+
+* adjusts on database connection config ([046bcb0](https://github.com/brunohafonso95/desafio-tecnico/commit/046bcb0df22ed34dd8d1d71dc6090b3000d7ea23))
+
 ### [1.0.2](https://github.com/brunohafonso95/desafio-tecnico/compare/v1.0.1...v1.0.2) (2020-09-28)
 
 
