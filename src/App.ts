@@ -9,7 +9,13 @@ import { signupRoutes, signinRoutes, getUserRoutes } from '@src/routes';
 
 import expressRouteAdapter from './adapters/expressRouteAdapter';
 import validateEnvVariables from './config/env/validateEnvVariables';
-import { errorMiddleware, bodyParserMiddleware } from './middlewares';
+import {
+  errorMiddleware,
+  bodyParserMiddleware,
+  contentTypeMiddleware,
+  corsMiddleware,
+  securityMiddleware,
+} from './middlewares';
 import openapiConfig from './openapirc';
 import Logger from './utils/Logger';
 
@@ -25,6 +31,9 @@ export default class App {
   private setupGlobalMiddlewares(): void {
     Logger.info({ msg: 'Setuping global middlewares' });
     this.server.use(bodyParserMiddleware());
+    this.server.use(contentTypeMiddleware);
+    this.server.use(corsMiddleware);
+    this.server.use(securityMiddleware);
     Logger.info({ msg: 'Global middlewares setup was successfully finished' });
   }
 
