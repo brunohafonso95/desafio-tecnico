@@ -1,3 +1,21 @@
+## [1.3.0](https://github.com/brunohafonso95/desafio-tecnico/compare/v1.2.0...v1.3.0) (2020-09-28)
+
+
+### :zap: Refactor
+
+* add logger to middleware of not found route ([255becf](https://github.com/brunohafonso95/desafio-tecnico/commit/255becf9f167ba3e4538f8eb74f3c2d3a085d4d6))
+
+
+### :sparkles: New Features
+
+* add logger middleware to application ([85e80db](https://github.com/brunohafonso95/desafio-tecnico/commit/85e80db5c6542e9cb004000423942a9ab091c656))
+
+
+### :memo: Documentation
+
+* fix the production api url on swagger docs ([ecd45fe](https://github.com/brunohafonso95/desafio-tecnico/commit/ecd45fef8ac6ae13086067f3d1e6c11e6e1f97ae))
+* update the description of error responses ([3693590](https://github.com/brunohafonso95/desafio-tecnico/commit/3693590fa2e5d332f3bfd79d71eab838b05745a8))
+
 ## [1.2.0](https://github.com/brunohafonso95/desafio-tecnico/compare/v1.1.0...v1.2.0) (2020-09-28)
 
 
