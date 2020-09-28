@@ -9,7 +9,7 @@
   "private": false,
   "scripts": {
     "build": "tsc && cp src/api.schema.yaml dist/src/api.schema.yaml",
-    "start": "pm2 start dist/src/index.js -i max",
+    "start": "node dist/src/index.js -i max",
     "start:local": "npm run build && cp src/api.schema.yaml dist/src/api.schema.yaml && node dist/src/index.js | pino-pretty -c -t",
     "start:dev": "ts-node-dev --inspect --transpile-only --no-notify --ignore-watch node_modules src/index.ts | pino-pretty -c -t"
   },
