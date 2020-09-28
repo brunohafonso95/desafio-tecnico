@@ -6,8 +6,8 @@
 ## Proposta
 
 - Crie um aplicativo backend que irá expor uma API RESTful de criação de sing up/signin.
-- Todos os endpoints devem somente aceitar e somente enviar JSONs. O servidor
-- Deverá retornar JSON para os casos de endpoint não encontrado também.
+- Todos os endpoints devem somente aceitar e somente enviar JSONs. 
+- O servidor Deverá retornar JSON para os casos de endpoint não encontrado também.
 - O aplicativo deverá persistir os dados.
 
 ## Requisitos
