@@ -4,8 +4,8 @@ import {
   IUser,
   IUserRepository,
 } from '@src/interfaces';
-import Schemas from '@src/interfaces/enums/Schemas';
 import ISchemaValidator from '@src/interfaces/ISchemaValidator';
+import * as schemas from '@src/schemas';
 
 interface ICreateUser extends IUser {
   id: string;
@@ -19,7 +19,7 @@ export default class CreateUserService implements ICreateUserService {
 
   public async execute(userData: IUser): Promise<ICreateUser> {
     const validatedUserData = this.joiAdapter.validateSchema<IUser>(
-      Schemas.UserSchema,
+      schemas.UserSchema,
       userData,
     );
     const token = this.authProvider.generateUserToken(validatedUserData);

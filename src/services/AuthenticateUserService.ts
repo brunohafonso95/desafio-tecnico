@@ -7,8 +7,8 @@ import {
   IUser,
   IUserRepository,
 } from '@src/interfaces';
-import Schemas from '@src/interfaces/enums/Schemas';
 import ISchemaValidator from '@src/interfaces/ISchemaValidator';
+import * as schemas from '@src/schemas';
 import ApiError from '@src/utils/errors/ApiError';
 import Logger from '@src/utils/Logger';
 
@@ -31,7 +31,7 @@ export default class AuthenticateUserService
     const validatedPayload = this.JoiAdapter.validateSchema<{
       email: string;
       senha: string;
-    }>(Schemas.AuthenticateUserSchema, { email, senha });
+    }>(schemas.AuthenticateUserSchema, { email, senha });
     const user = await this.userRepository.getUserByEmail(
       validatedPayload.email,
     );
@@ -67,6 +67,8 @@ export default class AuthenticateUserService
       data_atualizacao: dataAtual,
       ultimo_login: dataAtual,
     });
+
+    console.table({ user });
 
     return {
       ...user,
