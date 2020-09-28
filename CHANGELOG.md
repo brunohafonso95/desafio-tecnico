@@ -1,3 +1,17 @@
+## [1.2.0](https://github.com/brunohafonso95/desafio-tecnico/compare/v1.1.0...v1.2.0) (2020-09-28)
+
+
+### :memo: Documentation
+
+* add description of how to run the app ([88de6ae](https://github.com/brunohafonso95/desafio-tecnico/commit/88de6ae18c4a4c7d1a881e57e73a6c424a9b4d8b))
+* update the documentation of route signin including the 429 response ([768dfe7](https://github.com/brunohafonso95/desafio-tecnico/commit/768dfe742b1fa52eeffef643e4bdf896ec81d0a5))
+
+
+### :sparkles: New Features
+
+* add cors, security and contentType middlewares ([dd858ba](https://github.com/brunohafonso95/desafio-tecnico/commit/dd858ba0d09461c33226ef7184072955cbc12b85))
+* add rate limiter middleware to the signin route ([e472bf0](https://github.com/brunohafonso95/desafio-tecnico/commit/e472bf0cc4dc2f796e0f228fbab90edf099b71d3))
+
 ## [1.1.0](https://github.com/brunohafonso95/desafio-tecnico/compare/v1.0.2...v1.1.0) (2020-09-28)
 
 
