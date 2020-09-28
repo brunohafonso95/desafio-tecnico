@@ -9,7 +9,7 @@
   "private": false,
   "scripts": {
     "build": "tsc",
-    "start": "yarn build && node dist/src/index.js",
+    "start": "yarn build && cp src/api.schema.yaml dist/src/api.schema.yaml && node dist/src/index.js",
     "start:dev": "ts-node-dev --inspect --transpile-only --no-notify --ignore-watch node_modules src/index.ts | pino-pretty -c -t"
   },
   "dependencies": {
@@ -23,11 +23,19 @@
     "jsonwebtoken": "^8.5.1",
     "module-alias": "^2.2.2",
     "mongoose": "^5.10.6",
+    "openapi-comment-parser": "^1.0.0",
     "pino": "^6.6.1",
     "pino-pretty": "^4.2.1",
-    "ramda": "^0.27.1"
+    "ramda": "^0.27.1",
+    "swagger-ui-express": "^4.1.4"
   },
   "devDependencies": {
+    "@semantic-release/changelog": "^5.0.1",
+    "@semantic-release/commit-analyzer": "^8.0.1",
+    "@semantic-release/git": "^9.0.0",
+    "@semantic-release/github": "^7.0.7",
+    "@semantic-release/npm": "^7.0.5",
+    "@semantic-release/release-notes-generator": "^9.0.1",
     "@commitlint/cli": "^8.3.3",
     "@commitlint/config-conventional": "^11.0.0",
     "@types/bcrypt": "^3.0.0",
@@ -41,6 +49,7 @@
     "@types/node": "^14.11.2",
     "@types/pino": "^6.3.1",
     "@types/ramda": "^0.27.19",
+    "@types/swagger-ui-express": "^4.1.2",
     "@typescript-eslint/eslint-plugin": "^4.2.0",
     "@typescript-eslint/parser": "^4.2.0",
     "conventional-changelog-conventionalcommits": "^4.4.0",
