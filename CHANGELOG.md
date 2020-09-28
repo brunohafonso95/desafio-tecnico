@@ -1,3 +1,17 @@
+### [1.0.2](https://github.com/brunohafonso95/desafio-tecnico/compare/v1.0.1...v1.0.2) (2020-09-28)
+
+
+### :bug: Fixes
+
+* adjust on step of ci to publish to heroku ([a0ffdea](https://github.com/brunohafonso95/desafio-tecnico/commit/a0ffdeae9e61de020c6c528b8a69f34199c2b508))
+
+
+### :repeat: CI
+
+* adjust ol labels of workflow steps ([39836fe](https://github.com/brunohafonso95/desafio-tecnico/commit/39836fe79c88ea59f45c4c7caec2787496ff4cd2))
+* adjust on workflow steps sintax ([70efff9](https://github.com/brunohafonso95/desafio-tecnico/commit/70efff997e8b73cb8d7608e5fd3c05b65f68a6e0))
+* fix the step of repository checkout ([7b900bb](https://github.com/brunohafonso95/desafio-tecnico/commit/7b900bb52c62664c9c5227e5073b540eff35a3e2))
+
 ### [1.0.1](https://github.com/brunohafonso95/desafio-tecnico/compare/v1.0.0...v1.0.1) (2020-09-28)
 
 
