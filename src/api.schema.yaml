@@ -151,25 +151,30 @@ components:
     Error:
       type: object
       properties:
-        message:
-          '$ref': '#/components/schemas/mensagem'
+        mensagem:
+          type: string
+          example: 'Error genérico'
     AuthenticationError:
       type: object
       properties:
-       message;:
-          '$ref': '#/components/schemas/mensagem'
+       mensagem:
+          type: string
+          example: 'Não Autorizado'
     NotFoundError:
       type: object
       properties:
-       message;:
-          '$ref': '#/components/schemas/mensagem'
+       mensagem:
+          type: string
+          example: 'Not Found'
     InternalServerError:
       type: object
       properties:
-         message;:
-          '$ref': '#/components/schemas/mensagem'
+         mensagem:
+          type: string
+          example: 'Internal Server Error'
     TooManyRequestsServerError:
       type: object
       properties:
-         message;:
-          '$ref': '#/components/schemas/mensagem'
+         mensagem:
+          type: string
+          example: 'Too many requests'
