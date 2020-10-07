@@ -97,6 +97,6 @@ Descritivo das rotas acessar o aplicação em /docs (swagger com a descrição d
 
 ## Endereços públicos da aplicação
 
-https://sky-challenge-api.herokuapp.com/
+https://sky-challenge-api.herokuapp.com/docs
 https://github.com/brunohafonso95/desafio-tecnico
 
